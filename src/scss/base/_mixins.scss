@@ -1,0 +1,67 @@
+//Un mixin es pieza de css reusable, puede recibir argumentos
+/* Ejemplo puede tenerse un mixin para botones o MQ, imágenes de fondo, etc.
+
+@mixin heading2 {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: black;
+    letter-spacing: 1px;
+}
+
+// Mixin con argumentos
+
+@mixin heading($color: blue, $border-radius: false) { //Azul default
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    color: $color;
+    letter-spacing: 1px;
+    background-color: black;
+    @if $border-radius {
+        border-radius: 1rem; //Borde suavisado
+    }
+}
+
+*/
+
+// Media Query
+@use 'variables' as v;
+
+@mixin telefono {
+    @media (min-width: v.$telefono){
+        @content; //Para soportar argumentos en bloque
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop){
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL){
+        @content;
+    }
+}
+
+//mixin para grid
+
+@mixin grid($cols: 2, $gap-space: 5rem) {
+    display: grid;
+    grid-template-columns: repeat($cols, 1fr);
+    gap: $gap-space;
+}
+
+//resetear lista
+
+@mixin resetear-lista{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

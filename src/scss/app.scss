@@ -1,0 +1,12 @@
+/*Sintaxis nueva: requiere un index.scss en cada carpeta*/
+@use 'base'; //Sólo crea instancias locales
+@use 'layout';
+
+
+/*Sintaxis anterior
+@import 'base/variables';
+@import 'contenido/contenido';
+*/
+
+
+
